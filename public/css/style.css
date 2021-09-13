@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
+}
+body {
+    background-color: rgb(248, 248, 248);
+}
+.bg-yellow {
+    background-color: #F4FF63;
+}
+.full {
+    height: calc(100vh - 212px);
+}
+
+.btnred {
+    border-radius: 50%;
+}
+.mapa {
+    width: 95%;
+    height: 85%;
+}
