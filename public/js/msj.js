@@ -9,7 +9,7 @@ function cargarTXT() {
     fetch('../../test.txt')
     .then(data => data.text())
     .then(data=>{
-        let variables = data.split(";");
+        let variables = data.split("*");
         let lat = variables[0];
         let lon = variables[1];
         let tim = variables[2];

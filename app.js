@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-const port = 3000;
+const port = 50000;
 
 
 // motor de plantillas
