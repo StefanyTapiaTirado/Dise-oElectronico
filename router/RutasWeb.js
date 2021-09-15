@@ -10,11 +10,7 @@ router.get('/', (req, res) => {
 router.get('/monitorear/tiemporeal', (req, res) => {
     res.render("tiemporeal")
 })
-router.get('/monitorear/consultas', (req, res) => {
-    res.render("consultas")
-})
-router.use(cors());
-router.get("/api", (req, res) => {
+router.get("/monitorear/tiemporeal/api", (req, res) => {
     //Obtener el ultimo dato de la base de datos
     conexion.query(`SELECT * FROM dataTaxi ORDER BY id DESC LIMIT 1`, (err, result) => {
         if (!err) {
@@ -25,5 +21,9 @@ router.get("/api", (req, res) => {
         }
     })
 })
+router.get('/monitorear/consultas', (req, res) => {
+    res.render("consultas")
+})
+router.use(cors());
 
 module.exports = router;
