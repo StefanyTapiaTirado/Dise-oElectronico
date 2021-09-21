@@ -1,6 +1,8 @@
 const latitud = document.getElementById('latitud'); 
 const longitud = document.getElementById('longitud'); 
-const timestamp = document.getElementById('timestamp'); 
+const timestamp = document.getElementById('timestamp');
+const URLActual = window.location;
+const link = URLActual + '/api' 
 let latlon = Array(0);
 //Inicializar Polilinea
 var polyline = L.polyline([["0", "0"]], {color: "black"}).addTo(mymap);
@@ -13,7 +15,7 @@ const marker1 = L.marker([0, 0], {
 
 async function Taxi() {
 //Fetch para obtener el ultimo dato de la base de datos
-var response = await fetch(`http://localhost:8080/api`);
+var response = await fetch(link);
 if (response.status == 200) {
     let json1 = await response.json(); 
     data = json1[0];
@@ -40,3 +42,4 @@ if (response.status == 200) {
     );//Se coloca el marcador en la ultima coordenada obtenida
 }    
 }setInterval("Taxi()", 5000);
+Taxi()
