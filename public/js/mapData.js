@@ -32,7 +32,7 @@ if (response.status == 200) {
     latitud.innerHTML=lattxt;
     longitud.innerHTML=lontxt;
     timestamp.innerHTML=timetxt;
-    mymap.setView([lattxt, lontxt], 13);//Se centra el mapa en la ultima coordenada obtenida
+    mymap.setView([lattxt, lontxt]);//Se centra el mapa en la ultima coordenada obtenida
     marker1.setLatLng([lattxt, lontxt]).bindPopup(`<b>Lat:</b> ${lattxt} <br> <b>Lon:</b> ${lontxt}`,
         {
         closeOnClick: true,
