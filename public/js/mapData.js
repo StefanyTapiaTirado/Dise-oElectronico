@@ -6,11 +6,16 @@ const link = URLActual + '/api'
 let latlon = Array(0);
 //Inicializar Polilinea
 var polyline = L.polyline([["0", "0"]], {color: "black"}).addTo(mymap);
+//Crear icono con Taxi
+const realtimeIcon = new L.Icon({
+    iconUrl: "/images/taxi.png",
+    iconSize: [30, 30]
+});
 //Inicializar Marcador
 const marker1 = L.marker([0, 0], {
     title: "Coordenadas",
     draggable:false,
-    opacity: 0.9
+    icon: realtimeIcon
     }).addTo(mymap);
 
 async function Taxi() {
