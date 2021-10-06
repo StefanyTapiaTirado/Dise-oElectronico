@@ -164,3 +164,170 @@
   
   </body>
 </html>
+=======
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    
+    <!-- Hoja de estilos CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">   
+
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/eb10b21232.js" crossorigin="anonymous"></script>
+    
+    <!-- CSS Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <!-- Javascript Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+    <title>Uncle´s Taxi</title>
+
+  </head>
+  <body>
+      <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-yellow">
+        <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand ms-5" href="../../">Uncle´s Taxi</a>
+          <!-- Boton Toggler -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Lista de elementos -->
+          <div class="collapse navbar-collapse me-5" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item me-3">
+                <a class="nav-link active" aria-current="page" href="../../">Inicio</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Monitoreo
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="tiemporeal">Tiempo Real</a></li>
+                  <li><a class="dropdown-item" href="consultas">Consultas</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Cuerpo -->
+      <article>
+        <div class="row col-12 d-flex cont1">
+          <div class="container col-12 col-md-3 full">
+            <h3 class="text-center mt-4 mb-0">Información</h3>
+            <h3 class="text-center mt-0">Tiempo Real</h3>
+            <div class="row align-items-center mt-3 mt-md-4 w-75 mx-auto">
+                <div class="col border">
+                  <p class="fs-6 text-center p-2 mb-0">LATITUD</p>
+                </div>
+            </div>
+            <div class="row align-items-center w-75 mx-auto">
+              <div class="col border">
+                <p class="fs-6 text-center p-2 mb-0" id="latitud"></p>
+              </div>
+            </div>
+            <div class="row align-items-center w-75 mx-auto">
+                <div class="col border">
+                  <p class="fs-6 text-center p-2 mb-0">LONGITUD</p>
+                </div>
+            </div>
+            <div class="row align-items-center w-75 mx-auto">
+              <div class="col border">
+                <p class="fs-6 text-center p-2 mb-0" id="longitud"></p>
+              </div>
+            </div>
+            <div class="row align-items-center w-75 mx-auto">
+                <div class="col border">
+                  <p class="fs-6 text-center p-2 mb-0">TIMESTAMP</p>
+                </div>
+            </div>
+            <div class="row align-items-center w-75 mx-auto">
+              <div class="col border">
+                <p class="fs-6 text-center p-2 mb-0" id="timestamp"></p>
+              </div>
+            </div>
+          </div>
+          <div class="full col-12 col-md-9">
+              <div class="mapa m-auto mt-md-4" id="mapid">
+                
+              </div>
+          </div>
+        </div>
+      </article>
+
+
+      <footer class="bg-dark text-center text-white fixed-bottom">
+        <!-- Grid container -->
+        <div class="container p-2">
+          <!-- Section: Social media -->
+          <section>
+            <!-- Facebook -->
+            <a class="btn btnred btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Google -->
+            <a class="btn btnred btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btnred btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btnred btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2021 Copyright:
+          <a class="text-white" href="index.html">www.unclestaxi.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Creacion de Mapa -->
+    <script>
+      var mymap = L.map('mapid').setView([10.9878, -74.7889], 20); //Se configura un zoom de 13
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: 'pk.eyJ1Ijoic3RlZmYxNiIsImEiOiJja3RjNzJmamsyM2NqMnBwazFleXJveXRmIn0.WX6x2YRLtRxdp4RealPs5w'
+      }).addTo(mymap);
+    </script>
+    
+    <!-- Modificacion de Info y Markers -->
+    <script src="/js/mapData.js"></script>
+  
+  </body>
+</html>
