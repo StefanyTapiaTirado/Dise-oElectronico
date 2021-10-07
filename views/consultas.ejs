@@ -62,6 +62,11 @@
       </nav>
       <!-- Cuerpo -->
       <article>
+        <% if (error) { %>
+          <div class="alert alert-danger" role="alert" id="alert">
+            <%- error %>
+          </div>
+        <% } %>
         <div class="row col-12 d-flex cont1 mx-0">
           <div class="container col-12 col-md-3 full">
             <h3 class="text-center mt-4 mb-0">Realizar consulta</h3>
@@ -69,12 +74,12 @@
                 
             <form class="col-12 d-flex flex-column" method="POST">
                 <label class="ms-3 mt-3 mb-2" for="idate"><b>Fecha inicial:</b></label>
-                <div class="m-auto my-2 col-12 col-md-10">
-                    <input class="col-10 rounded text-center ms-4 ms-md-2" type="datetime-local" name="idate" id="idate" onkeydown="return false" onchange="validDate()"><i class="fas fa-check-circle ms-2" id="check1"></i>
+                <div class="m-auto my-2 col-12 col-md-10 position-relative">
+                    <input class="col-12 rounded text-center p-1" type="datetime-local" name="idate" id="idate" onchange="validDate()"><i class="fas fa-check-circle ms-2 position-absolute" style="top: 10px;" id="check1"></i>
                 </div>
                 <label class="ms-3 mt-3 mb-2" for="idate"><b>Fecha final:</b></label>                
-                <div class="m-auto my-2 col-12 col-md-10">
-                    <input class="col-10 rounded text-center ms-4 ms-md-2" type="datetime-local" name="fdate" id="fdate" onkeydown="return false"><i class="fas fa-check-circle ms-2" id="check2" style="color: rgb(0, 194, 0);"></i>
+                <div class="m-auto my-2 col-12 col-md-10  position-relative">
+                    <input class="col-12 rounded text-center p-1" type="datetime-local" name="fdate" id="fdate"><i class="fas fa-check-circle ms-2 position-absolute" id="check2" style="color: rgb(0, 194, 0); top: 10px;"></i>
                 </div>
                 <input class="btn bg-yellow mx-auto w-50 mt-4 border" type="submit" value="Consultar">
             </form>
@@ -147,17 +152,11 @@
     
     <!-- SE OBTIENE ARRAY DEL BACKEND Y SE TRAZA POLILINEA -->
     <% if (latlon.length>1) { %>
-      <script>
-        var latlon = <%- JSON.stringify(latlon) %>;
-        var result = [];
-        for(var i in latlon){
-          result.push(latlon[i]);
-        }
-        var polyline = L.polyline([result], {color: "black"}).addTo(mymap);
-        mymap.setView(result[0],13);
-      </script>
+      <script> var resultdb = <%- JSON.stringify(latlon) %>; </script>
+    <% }else{ %>
+      <script> var resultdb = Array(0); </script>
     <% } %>  
-
+    <script src="/js/record.js"></script>
     <script src="/js/calendars.js"></script>
     <script src="/js/check.js"></script>
   </body>
