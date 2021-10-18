@@ -15,9 +15,16 @@ router.get('/monitorear/consultas', (req, res) => {
     res.render("consultas", {latlon:'', error:''})
 })
 router.use(cors());
-router.get("/monitorear/tiemporeal/api", (req, res) => {
+router.get("/monitorear/tiemporeal/api/:id", (req, res) => {
+    //Se define a cual tabla realizar la consulta
+    let id = req.params.id;
+    if(id == 1){
+      table = 'dataTaxi'
+    }else if(id == 2){
+      table = 'dataTaxi2'
+    }
     //Obtener el ultimo dato de la base de datos
-    conexion.query(`SELECT * FROM dataTaxi ORDER BY id DESC LIMIT 1`, (err, result) => {
+    conexion.query(`SELECT * FROM ${table} ORDER BY id DESC LIMIT 1`, (err, result) => {
         if (!err) {
           var resultado = result;
           res.send(resultado)
@@ -27,9 +34,10 @@ router.get("/monitorear/tiemporeal/api", (req, res) => {
     })
 })
 router.post('/monitorear/consultas', (req, res) => {
-    let idate =req.body.idate;
-    let fdate =req.body.fdate;
-    if (idate == '' || fdate == ''){
+    let idate = req.body.idate;
+    let fdate = req.body.fdate;
+    let id = req.body.taxid;
+    if (idate == '' || fdate == '' || id == ''){
       error = 'Todos los campos son requeridos para realizar la consulta.';
       res.render("consultas", {error:error, latlon:''});
     }else{
@@ -37,11 +45,17 @@ router.post('/monitorear/consultas', (req, res) => {
       let date2 = fdate.split('T');
       let hora1 = date1[1].toString();
       let hora2 = date2[1].toString();
-      
       let time1 = date1[0] + ' ' + hora1 ;
       let time2 = date2[0] + ' ' + hora2 ;
-    
-      conexion.query(`SELECT * FROM dataTaxi WHERE (timestamps BETWEEN '${time1}' AND '${time2}')`, (err, result) => {
+      let tabledb = '';
+      //Se hace la consulta teniendo en cuenta ID
+      if (id == 1){
+        tabledb = 'dataTaxi';
+      }else if (id == 2){
+        tabledb = 'dataTaxi2';
+      }
+
+      conexion.query(`SELECT * FROM ${tabledb} WHERE (timestamps BETWEEN '${time1}' AND '${time2}')`, (err, result) => {
         if (!err) {
           let info = result;
           let latlon = Array(0);
