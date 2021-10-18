@@ -47,14 +47,8 @@
               <li class="nav-item me-3">
                 <a class="nav-link active" aria-current="page" href="../../">Inicio</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Monitoreo
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="tiemporeal">Tiempo Real</a></li>
-                  <li><a class="dropdown-item" href="consultas">Consultas</a></li>
-                </ul>
+              <li class="nav-item me-3">
+                <a class="nav-link active" aria-current="page" href="tiemporeal">Tiempo real</a>
               </li>
             </ul>
           </div>
@@ -74,13 +68,21 @@
                 
             <form class="col-12 d-flex flex-column" method="POST">
                 <label class="ms-3 mt-3 mb-2" for="idate"><b>Fecha inicial:</b></label>
-                <div class="m-auto my-2 col-12 col-md-10 position-relative">
+                <div class="mx-auto my-2 col-12 col-md-10 position-relative">
                     <input class="col-12 rounded text-center p-1" type="datetime-local" name="idate" id="idate" onchange="validDate()"><i class="fas fa-check-circle ms-2 position-absolute" style="top: 10px;" id="check1"></i>
                 </div>
                 <label class="ms-3 mt-3 mb-2" for="idate"><b>Fecha final:</b></label>                
-                <div class="m-auto my-2 col-12 col-md-10  position-relative">
+                <div class="mx-auto my-2 col-12 col-md-10 position-relative">
                     <input class="col-12 rounded text-center p-1" type="datetime-local" name="fdate" id="fdate"><i class="fas fa-check-circle ms-2 position-absolute" id="check2" style="color: rgb(0, 194, 0); top: 10px;"></i>
+                </div>                
+                <div class="mx-auto mt-4 mb-2 col-12 col-md-10 position-relative">
+                  <label class="mb-2 col-2" for="taxid"><b>Taxi:</b></label>
+                  <select class="col-9 rounded text-center p-1" name="taxid" id="taxid">
+                    <option value="1">Taxi #1</option>
+                    <option value="2">Taxi #2</option>
+                  </select>
                 </div>
+                
                 <input class="btn bg-yellow mx-auto w-50 mt-4 border" type="submit" value="Consultar">
             </form>
           </div>
@@ -136,7 +138,6 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-
     <!-- Creacion de Mapa -->
     <script>
       var mymap = L.map('mapid').setView([10.9878, -74.7889], 13); //Se configura un zoom de 13
@@ -150,7 +151,7 @@
       }).addTo(mymap);
     </script>
     
-    <!-- SE OBTIENE ARRAY DEL BACKEND Y SE TRAZA POLILINEA -->
+    <!-- SE OBTIENE ARRAY DEL BACKEND-->
     <% if (latlon.length>1) { %>
       <script> var resultdb = <%- JSON.stringify(latlon) %>; </script>
     <% }else{ %>
