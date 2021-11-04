@@ -19,8 +19,13 @@ for (j = 1; j < latlon.length; j++) {
     //Generar marcadores cada 3 datos
     if (j % 3 == 0 && j != latlon.length) {
         //Crear nombre de marcadores
-        markers = 'marker' + j;
-        markers = L.marker(latlon[j], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+resultdb[j][2]);
+        let markers = 'marker' + j;
+        if (resultdb[j][3] != null){
+            markers = L.marker(latlon[j], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ resultdb[j][2] + '<br><b>RPM:</b>' + resultdb[j][3] );
+        }else{
+            markers = L.marker(latlon[j], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ resultdb[j][2] + '<br><b>RPM:</b> Valor no registrado' );
+        }
+        
         markers.on('mouseover', function (e) {
             this.openPopup();
         });

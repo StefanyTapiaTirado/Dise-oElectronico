@@ -1,9 +1,11 @@
 const latitud1 = document.getElementById('latitud1'); 
 const longitud1 = document.getElementById('longitud1'); 
 const timestamp1 = document.getElementById('timestamp1');
+const rpm1 = document.getElementById('rpm1');
 const latitud2 = document.getElementById('latitud2'); 
 const longitud2 = document.getElementById('longitud2'); 
 const timestamp2 = document.getElementById('timestamp2');
+const rpm2 = document.getElementById('rpm2');
 const URLActual = window.location;
 const link1 = URLActual + '/api/1'; 
 const link2 = URLActual + '/api/2'; 
@@ -42,6 +44,7 @@ async function Taxi() {
         data1 = json1[0];
         let lattxt1 = data1['latitud'];
         let lontxt1 = data1['longitud'];
+        let rpmtxt1 = data1['rpm'];
         let date1 = data1['timestamps'].split('T');
         let hora1 = date1[1].toString();
         hora1 = hora1.substring(0, hora1.length - 2);
@@ -60,6 +63,11 @@ async function Taxi() {
             autoPan: false
             }
         );//Se coloca el marcador en la ultima coordenada obtenida
+        if (rmptxt1 != null){
+            rpm1.innerHTML=rpmtxt1;
+        }else {
+            rpm1.innerHTML='N.A';
+        }    
     }
     var response2 = await fetch(link2);
     if (response2.status == 200) {
@@ -67,6 +75,7 @@ async function Taxi() {
         data2 = json2[0];
         let lattxt2 = data2['latitud'];
         let lontxt2 = data2['longitud'];
+        let rpmtxt2 = data2['rpm'];
         let date2 = data2['timestamps'].split('T');
         let hora2 = date2[1].toString();
         hora2 = hora2.substring(0, hora2.length - 2);
@@ -85,6 +94,11 @@ async function Taxi() {
             autoPan: false
             }
         );//Se coloca el marcador en la ultima coordenada obtenida
+        if (rmptxt2 != null){
+            rpm2.innerHTML=rpmtxt2;
+        }else {
+            rpm2.innerHTML='N.A';
+        }
     }    
 }setInterval("Taxi()", 5000);
 Taxi()
