@@ -47,14 +47,8 @@
               <li class="nav-item me-3">
                 <a class="nav-link active" aria-current="page" href="../../">Inicio</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Monitoreo
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="tiemporeal">Tiempo Real</a></li>
-                  <li><a class="dropdown-item" href="consultas">Consultas</a></li>
-                </ul>
+              <li class="nav-item me-3">
+                <a class="nav-link active" aria-current="page" href="consultas">Consultas</a>
               </li>
             </ul>
           </div>
@@ -62,42 +56,83 @@
       </nav>
       <!-- Cuerpo -->
       <article>
-        <div class="row col-12 d-flex cont1">
-          <div class="container col-12 col-md-3 full">
-            <h3 class="text-center mt-4 mb-0">Información</h3>
-            <h3 class="text-center mt-0">Tiempo Real</h3>
-            <div class="row align-items-center mt-3 mt-md-4 w-75 mx-auto">
-                <div class="col border">
-                  <p class="fs-6 text-center p-2 mb-0">LATITUD</p>
+        <div class="row col-12 d-flex flex-wrap mx-0">
+          <div class="container col-12 col-md-4 full px-0">
+            <h3 class="text-center mt-4 mb-0">Información en tiempo real</h3>
+            <div class="row mt-3 mt-md-4 w-75 mx-auto bg-graylight">
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0"><b>TAXI #1</b></p>
+              </div>
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0"><b>TAXI #2</b></p>
+              </div>
+            </div>
+            <div class="row w-75 mx-auto">
+                <div class="col-6 border">
+                  <p class="fs-6 text-center p-1 mb-0">LATITUD</p>
+                </div>
+                <div class="col-6 border">
+                  <p class="fs-6 text-center p-1 mb-0">LATITUD</p>
                 </div>
             </div>
-            <div class="row align-items-center w-75 mx-auto">
-              <div class="col border">
-                <p class="fs-6 text-center p-2 mb-0" id="latitud"></p>
+            <div class="row align-items-center w-75 mx-auto bg-graylight">
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0" id="latitud1"></p>
+              </div>
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0" id="latitud2"></p>
               </div>
             </div>
             <div class="row align-items-center w-75 mx-auto">
-                <div class="col border">
-                  <p class="fs-6 text-center p-2 mb-0">LONGITUD</p>
+                <div class="col-6 border">
+                  <p class="fs-6 text-center p-1 mb-0">LONGITUD</p>
+                </div>
+                <div class="col-6 border">
+                  <p class="fs-6 text-center p-1 mb-0">LONGITUD</p>
                 </div>
             </div>
-            <div class="row align-items-center w-75 mx-auto">
-              <div class="col border">
-                <p class="fs-6 text-center p-2 mb-0" id="longitud"></p>
+            <div class="row align-items-center w-75 mx-auto bg-graylight">
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0" id="longitud1"></p>
+              </div>
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0" id="longitud2"></p>
               </div>
             </div>
             <div class="row align-items-center w-75 mx-auto">
-                <div class="col border">
-                  <p class="fs-6 text-center p-2 mb-0">TIMESTAMP</p>
+                <div class="col-6 border">
+                  <p class="fs-6 text-center p-1 mb-0">TIMESTAMP</p>
+                </div>
+                <div class="col-6 border">
+                  <p class="fs-6 text-center p-1 mb-0">TIMESTAMP</p>
                 </div>
             </div>
-            <div class="row align-items-center w-75 mx-auto">
-              <div class="col border">
-                <p class="fs-6 text-center p-2 mb-0" id="timestamp"></p>
+            <div class="row align-items-center w-75 mx-auto bg-graylight">
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0" id="timestamp1"></p>
               </div>
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0" id="timestamp2"></p>
+              </div>
+            </div>
+            <div class="row align-items-center w-75 mx-auto">
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0">RPM</p>
+              </div>
+              <div class="col-6 border">
+                <p class="fs-6 text-center p-1 mb-0">RPM</p>
+              </div>
+          </div>
+          <div class="row align-items-center w-75 mx-auto bg-graylight">
+            <div class="col-6 border">
+              <p class="fs-6 text-center p-1 mb-0" id="rpm1"></p>
+            </div>
+            <div class="col-6 border">
+              <p class="fs-6 text-center p-1 mb-0" id="rpm2"></p>
             </div>
           </div>
-          <div class="full col-12 col-md-9">
+          </div>
+          <div class="full col-12 col-md-8">
               <div class="mapa m-auto mt-md-4" id="mapid">
                 
               </div>
@@ -145,7 +180,7 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    
+
     <!-- Creacion de Mapa -->
     <script>
       var mymap = L.map('mapid').setView([10.9878, -74.7889], 13); //Se configura un zoom de 13

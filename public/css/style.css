@@ -15,11 +15,11 @@ body {
 .bg-yellow {
     background-color: #F4FF63;
 }
-.full {
-    height:300px;
+.bg-graylight {
+    background-color: #f1f1f1;
 }
-.cont1 {
-    flex-wrap: wrap;
+.full {
+    height:400px;
 }
 .btnred {
     border-radius: 50%;

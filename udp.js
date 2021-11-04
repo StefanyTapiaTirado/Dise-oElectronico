@@ -1,3 +1,4 @@
+const { table } = require('console');
 const dgram = require('dgram');
 const socket = dgram.createSocket('udp4');
 const fs = require('fs');
@@ -11,7 +12,15 @@ socket.on('message', (msg, rinfo) => {
     let lat = data[0];
     let lon = data[1];
     let tim = data[2];
-    conexion.query(`INSERT INTO dataTaxi(latitud,longitud,timestamps) VALUES ('${lat}','${lon}',STR_TO_DATE('${tim}','%d/%m/%Y %H:%i:%s'));`, (err) => {
+    let rpm = data[3];
+    let id = data[4];
+    let tabledb = '';
+    if (id == 1){
+      tabledb = 'dataTaxi';
+    } else if (id == 2){
+      tabledb = 'dataTaxi2';
+    }
+    conexion.query(`INSERT INTO ${tabledb}(latitud,longitud,timestamps) VALUES ('${lat}','${lon}',STR_TO_DATE('${tim}','%d/%m/%Y %H:%i:%s'),${rpm});`, (err) => {
         if (!err) {
           console.log('Base de datos modificada exitosamente')
         } else {
