@@ -60,7 +60,7 @@ router.post('/monitorear/consultas', (req, res) => {
           let info = result;
           let latlon = Array(0);
           for (i=0;i<info.length;i++){
-              latlon[i] = [info[i]['latitud'],info[i]['longitud'],info[i]['timestamps']];
+              latlon[i] = [info[i]['latitud'],info[i]['longitud'],info[i]['timestamps'],info[i]['rpm']];
           }
           res.render("consultas", {error:'', latlon:latlon});
         } else {
