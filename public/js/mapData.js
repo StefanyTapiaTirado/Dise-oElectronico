@@ -63,7 +63,7 @@ async function Taxi() {
             autoPan: false
             }
         );//Se coloca el marcador en la ultima coordenada obtenida
-        if (rmptxt1 != null){
+        if (rpmtxt1 != null){
             rpm1.innerHTML=rpmtxt1;
         }else {
             rpm1.innerHTML='N.A';
@@ -80,6 +80,7 @@ async function Taxi() {
         let hora2 = date2[1].toString();
         hora2 = hora2.substring(0, hora2.length - 2);
         let timetxt2 = date2[0] + ' ' + hora2 ;
+        console.log(date2);
         //LLenar el array latlon con los datos entrantes
         latlon2.push([lattxt2, lontxt2]);
         // Generar polilinea apartir del array latlon
@@ -94,7 +95,7 @@ async function Taxi() {
             autoPan: false
             }
         );//Se coloca el marcador en la ultima coordenada obtenida
-        if (rmptxt2 != null){
+        if (rpmtxt2 != null){
             rpm2.innerHTML=rpmtxt2;
         }else {
             rpm2.innerHTML='N.A';
