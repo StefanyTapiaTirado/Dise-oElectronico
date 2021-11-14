@@ -20,7 +20,7 @@ socket.on('message', (msg, rinfo) => {
     } else if (id == 2){
       tabledb = 'dataTaxi2';
     }
-    conexion.query(`INSERT INTO ${tabledb}(latitud,longitud,timestamps) VALUES ('${lat}','${lon}',STR_TO_DATE('${tim}','%d/%m/%Y %H:%i:%s'),${rpm});`, (err) => {
+    conexion.query(`INSERT INTO ${tabledb}(latitud,longitud,timestamps,rpm) VALUES ('${lat}','${lon}',STR_TO_DATE('${tim}','%d/%m/%Y %H:%i:%s'),'${rpm}');`, (err) => {
         if (!err) {
           console.log('Base de datos modificada exitosamente')
         } else {

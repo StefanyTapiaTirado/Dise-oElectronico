@@ -80,6 +80,7 @@
                   <select class="col-9 rounded text-center p-1" name="taxid" id="taxid">
                     <option value="1">Taxi #1</option>
                     <option value="2">Taxi #2</option>
+                    <option value="3">Ambos taxis</option>
                   </select>
                 </div>
                 
@@ -157,6 +158,13 @@
     <% }else{ %>
       <script> var resultdb = Array(0); </script>
     <% } %>  
+
+    <% if (latlon2.length>1) { %>
+      <script> var resultdb2 = <%- JSON.stringify(latlon2) %>; </script>
+    <% }else{ %>
+      <script> var resultdb2 = Array(0); </script>
+    <% } %>  
+
     <script src="/js/record.js"></script>
     <script src="/js/calendars.js"></script>
     <script src="/js/check.js"></script>
