@@ -69,11 +69,11 @@
             <form class="col-12 d-flex flex-column" method="POST">
                 <label class="ms-3 mt-3 mb-2" for="idate"><b>Fecha inicial:</b></label>
                 <div class="mx-auto my-2 col-12 col-md-10 position-relative">
-                    <input class="col-12 rounded text-center p-1" type="datetime-local" name="idate" id="idate" onchange="validDate()"><i class="fas fa-check-circle ms-2 position-absolute" style="top: 10px;" id="check1"></i>
+                    <input class="col-12 rounded text-center p-1" type="datetime-local" name="idate" id="idate" value="<%- initialdate %>" onchange="validDate()"><i class="fas fa-check-circle ms-2 position-absolute" style="top: 10px;" id="check1"></i>
                 </div>
                 <label class="ms-3 mt-3 mb-2" for="idate"><b>Fecha final:</b></label>                
                 <div class="mx-auto my-2 col-12 col-md-10 position-relative">
-                    <input class="col-12 rounded text-center p-1" type="datetime-local" name="fdate" id="fdate"><i class="fas fa-check-circle ms-2 position-absolute" id="check2" style="color: rgb(0, 194, 0); top: 10px;"></i>
+                    <input class="col-12 rounded text-center p-1" type="datetime-local" name="fdate" id="fdate" value="<%- finaldate %>"><i class="fas fa-check-circle ms-2 position-absolute" id="check2" style="color: rgb(0, 194, 0); top: 10px;"></i>
                 </div>                
                 <div class="mx-auto mt-4 mb-2 col-12 col-md-10 position-relative">
                   <label class="mb-2 col-2" for="taxid"><b>Taxi:</b></label>
