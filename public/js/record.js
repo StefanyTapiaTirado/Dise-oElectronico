@@ -43,9 +43,9 @@ let markers = [];
 for (i = 1; i < latlon.length; i++){
         dates1[i] = dates1[i].split("T").join(" ").split(".000Z").join("");
         if (rpm1[i] != null){
-            markers[i] = L.marker(latlon[i], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>RPM:</b>' + rpm1[i]);// + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j]);           
+            markers[i] = L.marker(latlon[i], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>Nivel de gasolina:</b>' + rpm1[i]);// + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j]);           
         }else{
-            markers[i] = L.marker(latlon[i], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>RPM:</b> Valor no registrado');
+            markers[i] = L.marker(latlon[i], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>Nivel de gasolina:</b> Valor no registrado');
         }
         
         markers[i].on('mouseover', function (e) {
@@ -61,19 +61,19 @@ for (i = 1; i < latlon.length; i+=2){
         if (i != j){
             let distance = mymap.distance(latlon[i],latlon[j]);
             if (distance < 50 && rpm1[i] == null && rpm1[j] == null){
-                markers[i].bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>RPM:</b> Valor no registrado' + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j] + '<br><b>RPM:</b> Valor no registrado');
+                markers[i].bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>Nivel de gasolina:</b> Valor no registrado' + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j] + '<br><b>Nivel de gasolina:</b> Valor no registrado');
                 mymap.removeLayer(markers[j]);
             }
             if (distance < 50 && rpm1[i] != null && rpm1[j] == null){
-                markers[i].bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>RPM:</b>' + rpm1[i] + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j] + '<br><b>RPM:</b> Valor no registrado');
+                markers[i].bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>Nivel de gasolina:</b>' + rpm1[i] + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j] + '<br><b>Nivel de gasolina:</b> Valor no registrado');
                 mymap.removeLayer(markers[j]);
             }
             if (distance < 50 && rpm1[i] == null && rpm1[j] != null){
-                markers[i].bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>RPM:</b>' + '<br><b>RPM:</b> Valor no registrado' + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j] + '<br><b>RPM:</b>' + rpm1[j]);
+                markers[i].bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>Nivel de gasolina:</b>' + '<br><b>Nivel de gasolina:</b> Valor no registrado' + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j] + '<br><b>Nivel de gasolina:</b>' + rpm1[j]);
                 mymap.removeLayer(markers[j]);
             }
             if (distance < 50 && rpm1[i] != null && rpm1[j] != null){
-                markers[i].bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>RPM:</b>' + '<br><b>RPM:</b>' + rpm1[i] + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j] + '<br><b>RPM:</b>' + rpm1[j]);
+                markers[i].bindPopup("<b>Fecha y Hora:</b> "+ dates1[i] + '<br><b>Nivel de gasolina:</b>' + '<br><b>Nivel de gasolina:</b>' + rpm1[i] + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j] + '<br><b>Nivel de gasolina:</b>' + rpm1[j]);
                 mymap.removeLayer(markers[j]);
             }
         }
@@ -84,9 +84,9 @@ let markers2 = [];
 for (i = 1; i < latlon2.length; i++){
         dates2[i] = dates2[i].split("T").join(" ").split(".000Z").join("");
         if (rpm2[i] != null){
-            markers2[i] = L.marker(latlon2[i], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>RPM:</b>' + rpm2[i]);// + '<br>' + "<b>Fecha y Hora:</b> "+ dates1[j]);           
+            markers2[i] = L.marker(latlon2[i], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>Nivel de gasolina:</b>' + rpm2[i]);           
         }else{
-            markers2[i] = L.marker(latlon2[i], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>RPM:</b> Valor no registrado');
+            markers2[i] = L.marker(latlon2[i], {icon: recordIcon}).addTo(mymap).bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>Nivel de gasolina:</b> Valor no registrado');
         }
         
         markers[i].on('mouseover', function (e) {
@@ -102,19 +102,19 @@ for (i = 1; i < latlon2.length; i+=2){
         if (i != j){
             let distance = mymap.distance(latlon2[i],latlon2[j]);
             if (distance < 50 && rpm2[i] == null && rpm2[j] == null){
-                markers2[i].bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>RPM:</b> Valor no registrado' + '<br>' + "<b>Fecha y Hora:</b> "+ dates2[j] + '<br><b>RPM:</b> Valor no registrado');
+                markers2[i].bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>Nivel de gasolina:</b> Valor no registrado' + '<br>' + "<b>Fecha y Hora:</b> "+ dates2[j] + '<br><b>Nivel de gasolina:</b> Valor no registrado');
                 mymap.removeLayer(markers2[j]);
             }
             if (distance < 50 && rpm2[i] != null && rpm2[j] == null){
-                markers2[i].bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>RPM:</b>' + rpm2[i] + '<br>' + "<b>Fecha y Hora:</b> "+ dates2[j] + '<br><b>RPM:</b> Valor no registrado');
+                markers2[i].bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>Nivel de gasolina:</b>' + rpm2[i] + '<br>' + "<b>Fecha y Hora:</b> "+ dates2[j] + '<br><b>Nivel de gasolina:</b> Valor no registrado');
                 mymap.removeLayer(markers2[j]);
             }
             if (distance < 50 && rpm2[i] == null && rpm2[j] != null){
-                markers2[i].bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>RPM:</b>' + '<br><b>RPM:</b> Valor no registrado' + '<br>' + "<b>Fecha y Hora:</b> "+ dates2[j] + '<br><b>RPM:</b>' + rpm2[j]);
+                markers2[i].bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>Nivel de gasolina:</b>' + '<br><b>Nivel de gasolina:</b> Valor no registrado' + '<br>' + "<b>Fecha y Hora:</b> "+ dates2[j] + '<br><b>Nivel de gasolina:</b>' + rpm2[j]);
                 mymap.removeLayer(markers2[j]);
             }
             if (distance < 50 && rpm2[i] != null && rpm2[j] != null){
-                markers2[i].bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>RPM:</b>' + '<br><b>RPM:</b>' + rpm2[i] + '<br>' + "<b>Fecha y Hora:</b> "+ dates2[j] + '<br><b>RPM:</b>' + rpm2[j]);
+                markers2[i].bindPopup("<b>Fecha y Hora:</b> "+ dates2[i] + '<br><b>Nivel de gasolina:</b>' + '<br><b>Nivel de gasolina:</b>' + rpm2[i] + '<br>' + "<b>Fecha y Hora:</b> "+ dates2[j] + '<br><b>Nivel de gasolina:</b>' + rpm2[j]);
                 mymap.removeLayer(markers2[j]);
             }
         }

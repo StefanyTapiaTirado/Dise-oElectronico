@@ -22,11 +22,16 @@ today = yyyy + "-" + mm + "-" + dd + "T" + hora;
 endDate = document.getElementById("fdate");
 startDate = document.getElementById("idate");
 
-endDate.value = today;
+
 
 // Seleccionar maximo y minimo para los calendarios segun las fechas seleccionadas
 startDate.addEventListener("click", async () => {
-    startDate.max = endDate.value;
+    if(endDate.value != ''){
+        startDate.max = endDate.value;
+    }else{
+        startDate.max = today;
+    }
+    
 })
 endDate.addEventListener("click", async () => {
     endDate.min = startDate.value;
