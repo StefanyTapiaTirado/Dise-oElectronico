@@ -12,7 +12,7 @@ router.get('/monitorear/tiemporeal', (req, res) => {
     res.render("tiemporeal")
 })
 router.get('/monitorear/consultas', (req, res) => {
-    res.render("consultas", {latlon:'',latlon2:'', error:''})
+    res.render("consultas", {latlon:'',latlon2:'', error:'',initialdate:'',finaldate:''})
 })
 router.use(cors());
 router.get("/monitorear/tiemporeal/api/:id", (req, res) => {
@@ -39,7 +39,7 @@ router.post('/monitorear/consultas', (req, res) => {
     let id = req.body.taxid;
     if (idate == '' || fdate == '' || id == ''){
       error = 'Todos los campos son requeridos para realizar la consulta.';
-      res.render("consultas", {error:error, latlon:''});
+      res.render("consultas", {error:error, latlon:'',latlon2:'',initialdate:'',finaldate:''});
     }else{
       let date1 = idate.split('T');
       let date2 = fdate.split('T');
@@ -67,7 +67,7 @@ router.post('/monitorear/consultas', (req, res) => {
               latlon[i] = [info[i]['latitud'],info[i]['longitud'],info[i]['timestamps'],info[i]['rpm']];
           }
           if (id != 3){
-            res.render("consultas", {error:'', latlon:latlon,latlon2:''});          
+            res.render("consultas", {error:'', latlon:latlon,latlon2:'',initialdate:idate,finaldate:fdate});          
           }
           if (id == 3){
           conexion.query(`SELECT * FROM ${tabledb2} WHERE (timestamps BETWEEN '${time1}' AND '${time2}')`, (err, result) => {
@@ -77,7 +77,7 @@ router.post('/monitorear/consultas', (req, res) => {
               for (i=0;i<info2.length;i++){
                   latlon2[i] = [info2[i]['latitud'],info2[i]['longitud'],info2[i]['timestamps'],info2[i]['rpm']];
               }
-              res.render("consultas", {error:'', latlon:latlon,latlon2:latlon2});
+              res.render("consultas", {error:'', latlon:latlon,latlon2:latlon2,initialdate:idate,finaldate:fdate});
             } else {
               console.log(err);
             }
